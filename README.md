@@ -14,3 +14,9 @@ git push --tag
 ```
 go get -u github.com/linzening/xgo
 ```
+
+## 升级
+
+```
+go install github.com/linzening/xgo@v1.0.2
+```
