@@ -2,7 +2,7 @@ package xgo
 
 import (
 	"database/sql"
-	"fmt"
+	// "fmt"
 	"log"
 	"strconv"
 	_ "github.com/mattn/go-sqlite3"
@@ -81,7 +81,7 @@ func InsertLog(username string,times int,logintime string,ipaddr string) string 
 	return "times:" + strconv.Itoa(len(res))
 }
 
-func ExistsLogTable(db *sql.DB,tablename string) {
+func ExistsLogTable(db *sql.DB) error {
 	sql := `create table if not exists "logs" (
 		"id" integer primary key autoincrement,
 		"username" text not null,
