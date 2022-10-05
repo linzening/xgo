@@ -93,7 +93,7 @@ func ExistsLogTable(db *sql.DB) error {
 	return err
 }
 
-func insertLogData(db *sql.DB, u log) error {
+func insertLogData(db *sql.DB, u logins) error {
 	sql := `insert into logs (username, times, logintime, ipaddr) values(?,?,?,?)`
 	stmt, err := db.Prepare(sql)
 	if err != nil {
