@@ -1,4 +1,4 @@
 package xgo
 
 // Version is the current gin framework's version.
-const Version = "v1.0.5"
+const Version = "v1.0.7"

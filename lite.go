@@ -78,7 +78,7 @@ func InsertLog(username string,times int,logintime string,ipaddr string) string 
 	if checkErr(err) {
 		return "query error."
 	}
-	return "times:" + strconv.Itoa(len(res))
+	return strconv.Itoa(len(res))
 }
 
 func ExistsLogTable(db *sql.DB) error {
@@ -87,7 +87,7 @@ func ExistsLogTable(db *sql.DB) error {
 		"username" text not null,
 		"times" integer not null,
 		"logintime" text,
-		"ipaddr" text,
+		"ipaddr" text
 	)`
 	_, err := db.Exec(sql)
 	return err
