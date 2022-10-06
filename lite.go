@@ -23,8 +23,8 @@ const (
 type logins struct {
 	Username string
 	Times      int
-	Ipaddr      string
 	Logintime    string
+	Ipaddr      string
 }
 
 // func Info() {
