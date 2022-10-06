@@ -78,6 +78,7 @@ func InsertLog(username string,times int,logintime string,ipaddr string) string 
 	if checkErr(err) {
 		return "query error."
 	}
+	db.Close()
 	return strconv.Itoa(len(res))
 }
 
