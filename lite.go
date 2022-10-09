@@ -3,6 +3,7 @@ package xgo
 import (
 	"database/sql"
 	// "fmt"
+	"encoding/json"
 	"log"
 	"strconv"
 	_ "github.com/mattn/go-sqlite3"
@@ -21,10 +22,10 @@ const (
 // }
 
 type logins struct {
-	Username string
-	Times      int
-	Logintime    string
-	Ipaddr      string
+	Username string `json:"username"`
+	Times      int `json:"times"`
+	Logintime    string `json:"logintime"`
+	Ipaddr      string `json:"ipaddress"`
 }
 
 // func Info() {
@@ -80,6 +81,24 @@ func InsertLog(username string,times int,logintime string,ipaddr string) string 
 	}
 	db.Close()
 	return strconv.Itoa(len(res))
+}
+
+func ReadLogs() string {
+	db, err := sql.Open(dbDriverName, dbName)
+	if checkErr(err) {
+		return "db error."
+	}
+	err = ExistsLogTable(db)
+	if checkErr(err) {
+		return "table error."
+	}
+	res, err := queryLogTotal(db)
+	if checkErr(err) {
+		return "query error."
+	}
+	db.Close()
+	jian1, _ := json.Marshal(res)
+	return string(jian1)
 }
 
 func ExistsLogTable(db *sql.DB) error {
