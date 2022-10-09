@@ -5,7 +5,7 @@
 ## 提交部分
 
 ```
-git tag v1.0.10
+git tag v1.0.11
 git push --tag
 ```
 
@@ -18,5 +18,5 @@ go get -u github.com/linzening/xgo
 ## 升级
 
 ```
-go install github.com/linzening/xgo@v1.0.10
+go install github.com/linzening/xgo@v1.0.11
 ```
